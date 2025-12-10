@@ -1,4 +1,4 @@
-package com.hcbxwy.blog.common.handler;
+package com.hcbxwy.blog.web.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -7,6 +7,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
@@ -25,8 +26,8 @@ import java.util.stream.Collectors;
 public class RequestBodyValidationHandler extends RequestBodyAdviceAdapter {
     @Override
     public boolean supports(@NonNull MethodParameter methodParameter, @NonNull Type targetType, @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
-        // 处理所有请求
-        return true;
+        // 只处理带有@RequestBody注解的方法
+        return methodParameter.hasParameterAnnotation(RequestBody.class);
     }
 
     @Override

@@ -32,8 +32,8 @@ public class ValidationUtil extends cn.hutool.extra.validation.ValidationUtil {
     public static <T> String validateBean(T bean, Class<?>... groups) {
         BeanValidationResult result = warpValidate(bean, groups);
         if (!result.isSuccess()) {
-            return result.getErrorMessages().stream().map(o -> o.getPropertyName() + " " + o.getMessage()).collect(Collectors.joining(
-                    ","));
+            return result.getErrorMessages().stream().map(BeanValidationResult.ErrorMessage::getMessage)
+                    .collect(Collectors.joining(","));
         }
         return null;
     }

@@ -1,4 +1,4 @@
-package com.hcbxwy.blog.common.handler;
+package com.hcbxwy.blog.web.handler;
 
 import com.hcbxwy.blog.common.annotation.IgnoreResponseHandle;
 import com.hcbxwy.blog.common.response.Result;

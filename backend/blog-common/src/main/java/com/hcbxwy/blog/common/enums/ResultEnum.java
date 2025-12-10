@@ -19,7 +19,7 @@ public enum ResultEnum {
     FORBIDDEN(403, "Forbidden"),
     NOT_FOUND(404, "Not Found"),
     CONFLICT(409, "Conflict"),
-    INTERNAL_SERVER_ERROR(500, "Internal Server Error");
+    INTERNAL_SERVER_ERROR(500, "系统异常，请稍后再试");
 
     private final int code;
     private final String msg;

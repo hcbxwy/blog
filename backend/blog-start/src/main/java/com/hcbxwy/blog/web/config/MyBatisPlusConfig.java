@@ -1,4 +1,4 @@
-package com.hcbxwy.blog.config;
+package com.hcbxwy.blog.web.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

@@ -18,28 +18,17 @@
 
 ## 🛠 技术栈
 
-### 后端（Java）
+### 后端（Spring Boot 3）
 
-| 类别       | 技术选型                    | 说明                   |
-|----------|-------------------------|----------------------|
-| 核心框架     | Spring Boot 3.5.8       | 基于 JDK 21，轻量高效       |
-| 构建工具     | Maven                   | 多模块管理                |
-| 数据库      | MySQL 8.0               | 本地部署，已调优             |
-| ORM      | MyBatis-Plus 3.5.14     | 简化 CRUD，提升开发效率       |
-| 缓存       | Caffeine                | 本地缓存，零外部依赖，节省内存      |
-| 安全       | sa-token                | 无状态认证，适配 RESTful API |
-| Markdown | flexmark-java           | Java 原生 Markdown 解析  |
-| 部署       | Docker + docker-compose | 容器化部署，资源隔离           |
+- Spring Boot 3.5.8
+- MyBatis-Plus 3.5.14
+- MySQL 8.0
 
 ### 前端（Vue3）
 
-| 类别       | 技术选型                                      |
-|----------|-------------------------------------------|
-| 框架       | Vue 3（Composition API + `<script setup>`） |
-| UI 组件库   | Element Plus                              |
-| 构建工具     | Vite                                      |
-| 路由       | Vue Router 4                              |
-| HTTP 客户端 | Axios                                     |
+- nuxt：^3.20.2
+- vue：^3.5.25
+- vue-router：^4.6.3
 
 ### 运维 & 部署
 
@@ -54,26 +43,16 @@
 ```bash
 blog/
 ├── backend/
-│   ├── src/main/
-│   │   ├── java/com/hcbxwy/blog/
-│   │   │   ├── BlogApplication.java  # 启动类
-│   │   │   ├── common/               # 公共模块
-│   │   │   ├── config/               # 配置模块
-│   │   │   ├── controller/           # 控制层
-│   │   │   │   ├── admin/            # 管理后台接口
-│   │   │   │   ├── api/              # 前台API接口
-│   │   │   │   └── common/           # 公共接口
-│   │   │   ├── pojo/                 # POJO实体类
-│   │   │   ├── mapper/               # 数据访问层
-│   │   │   ├── service/              # 业务逻辑层
-│   │   │   │   └── impl/             # 业务逻辑实现
-│   │   └── resources/
-│   │       ├── application.yml       # 应用配置文件
-│   │       └── migration/            # 数据库迁移脚本
-│   └── pom.xml                       # Maven 配置文件
+│   ├── blog-admin/                   # 后台管理模块
+│   ├── blog-common/                  # 公共模块
+│   ├── blog-core/                    # 核心模块
+│   ├── blog-generator/               # 代码生成模块
+│   ├── blog-portal/                  # 门户模块
+│   ├── blog-start/                   # 启动模块
 ├── frontend/                         # 前端项目目录
+├── scripts/                          # 脚本文件
+├── doc/                              # 文档目录
 ├── README.md                         # 项目说明文档
-└── LICENSE                           # 许可证文件
 ```
 
 ## 🚀 快速启动（本地开发）
@@ -83,7 +62,7 @@ blog/
 ```bash
 cd backend
 mvn clean package -DskipTests
-java -jar blog-main/target/*.jar
+java -jar blog-start/target/*.jar
 ```
 
 ### 前端
@@ -106,18 +85,18 @@ docker-compose up -d
 
 ## 📅 版本规划
 
-| 版本   | 状态     | 功能描述        |
-|------|--------|-------------|
-| v0.1 | 🚧 开发中 | 后端项目骨架工程搭建  |
-| v0.2 | ⏳ 计划中  | 前端项目骨架工程搭建  |
-| v0.3 | ⏳ 计划中  | 登录注册功能      |
-| v0.4 | ⏳ 计划中  | 文章发布与浏览     |
-| v1.0 | ⏳ 计划中  | v1.0版本上线    |
+| 版本   | 状态     | 功能描述       |
+|------|--------|------------|
+| v0.1 | ✅ 已完成  | 后端项目骨架工程搭建 |
+| v0.2 | 🚧 计划中 | 前端项目骨架工程搭建 |
+| v0.3 | ⏳ 计划中  | 登录注册功能     |
+| v0.4 | ⏳ 计划中  | 文章发布与浏览    |
+| v1.0 | ⏳ 计划中  | v1.0版本上线   |
 
 ## 📜 License
 
 Apache License 2.0 — 免费用于学习、商用、二次开发。
 
 > 作者：Leo
-> Github：https://github.com/hcbxwy/Blog
+> Github：https://github.com/hcbxwy/blog
 > 部署示例：www.hcbxwy.com
